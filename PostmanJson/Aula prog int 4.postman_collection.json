@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "d05258aa-bef0-40d2-a51b-79230900924b",
+		"name": "Aula prog int 4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Registro de usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"teste\",\r\n    \"email\":\"teste@teste.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/registrar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gerar novo Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"teste@teste.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lista",
+			"item": [
+				{
+					"name": "Listar listas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/listas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"listas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista - Busca por id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/listas/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"listas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista - Cria lista",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\":\"Lista de tarefas\",\r\n    \"descricao\":\"Descricao da lista de tarefas\",\r\n    \"tarefas\": [\r\n        {\r\n            \"titulo\": \"Primeira tarefa da lista\",\r\n            \"usuario\": \"\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/listas/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"listas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista - Atualiza lista",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\":\"Lista de tarefas\",\r\n    \"descricao\":\"Descricao da lista de tarefas\",\r\n    \"tarefas\": [\r\n        {\r\n            \"titulo\": \"Primeira tarefa da lista\",\r\n            \"concluida\": true,\r\n            \"usuario\": \"\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/listas/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"listas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista - Remover Lista",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/listas/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"listas",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "token",
+			"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMjgyMGU1YjdjYjlkNTRiNDcxODkyMyIsImlhdCI6MTYzMDAxOTgxMywiZXhwIjoxNjMwMTA2MjEzfQ.NlogRn9cmscq9rIk7g6iowY0kT3Zy-01ifYNTQ6LCu0"
+		}
+	]
+}
