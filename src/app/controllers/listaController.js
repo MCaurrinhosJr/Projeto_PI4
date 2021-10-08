@@ -82,6 +82,7 @@ router.put('/:listaId', async (req, res) =>{
 
 router.delete('/:listaId', async (req, res) =>{
     try {
+        await Tarefa.remove({ lista: req.params.listaId }); // Remove taferas
         await Lista.findByIdAndRemove(req.params.listaId);
 
         return res.send();

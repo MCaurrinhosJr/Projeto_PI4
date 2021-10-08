@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\":\"teste\",\r\n    \"email\":\"teste@teste.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"raw": "{\r\n    \"nome\":\"teste\",\r\n    \"email\":\"teste@teste.com\",\r\n    \"senha\":\"12345\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -42,7 +42,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"teste@teste.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"raw": "{\r\n    \"email\":\"teste@teste.com\",\r\n    \"senha\":\"12345\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -127,7 +127,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"titulo\":\"Lista de tarefas\",\r\n    \"descricao\":\"Descricao da lista de tarefas\",\r\n    \"tarefas\": [\r\n        {\r\n            \"titulo\": \"Primeira tarefa da lista\",\r\n            \"usuario\": \"\"\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"titulo\":\"Lista de tarefas\",\r\n    \"descricao\":\"Descricao da lista de tarefas\",\r\n    \"tarefas\": [\r\n        {\r\n            \"titulo\": \"Primeira tarefa da lista\",\r\n            \"usuario\": \"615f7a04d3de569f41d0e40f\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -135,13 +135,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/listas/",
+							"raw": "{{url}}/listas",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"listas",
-								""
+								"listas"
 							]
 						}
 					},
@@ -160,7 +159,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"titulo\":\"Lista de tarefas\",\r\n    \"descricao\":\"Descricao da lista de tarefas\",\r\n    \"tarefas\": [\r\n        {\r\n            \"titulo\": \"Primeira tarefa da lista\",\r\n            \"concluida\": true,\r\n            \"usuario\": \"\"\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"titulo\":\"Lista de tarefas\",\r\n    \"descricao\":\"Descricao da lista de tarefas\",\r\n    \"tarefas\": [\r\n        {\r\n            \"titulo\": \"Primeira tarefa da lista\",\r\n            \"concluida\": true,\r\n            \"usuario\": \"615f7a04d3de569f41d0e40f\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -168,13 +167,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/listas/",
+							"raw": "{{url}}/listas/615f87e8bbceb7148def9c80",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"listas",
-								""
+								"615f87e8bbceb7148def9c80"
 							]
 						}
 					},
@@ -233,11 +232,11 @@
 	"variable": [
 		{
 			"key": "url",
-			"value": "http://localhost:3000"
+			"value": ""
 		},
 		{
 			"key": "token",
-			"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMjgyMGU1YjdjYjlkNTRiNDcxODkyMyIsImlhdCI6MTYzMDAxOTgxMywiZXhwIjoxNjMwMTA2MjEzfQ.NlogRn9cmscq9rIk7g6iowY0kT3Zy-01ifYNTQ6LCu0"
+			"value": ""
 		}
 	]
 }
