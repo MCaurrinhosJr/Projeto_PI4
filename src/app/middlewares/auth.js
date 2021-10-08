@@ -15,13 +15,13 @@ module.exports = (req, res, next) => {
 
     const [ scheme, token ] = parts;
     
-    if(!/^Bearer&/i.test(scheme))
+    if(!/^Bearer$/i.test(scheme))
         return res.status(401).send({ error: 'Token com formato incorreto' });
     
     jwt.verify(token, authConfig.secret, (err, decoded) => {
         if(err) return res.status(401).send({ error: 'Token invalido' });
 
-        res.userId = decoded.id;
+        req.userId = decoded.params.id;
         return next();
     });
 };

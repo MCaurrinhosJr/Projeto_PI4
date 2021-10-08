@@ -1,10 +1,7 @@
 const express = require('express');
 const middleware = require('../middlewares/auth');
 const Lista = require('../models/lista');
-
-const lista = require('../models/lista');
 const Tarefa = require('../models/tareafa');
-const tarefa = require('../models/tareafa');
 
 const router = express.Router();
 
@@ -33,16 +30,18 @@ router.get('/:listaId', async (req, res) =>{
 router.post('/', async (req, res) =>{
     try {
         const { titulo, descricao, tarefas } = req.body;
+
         const lista = await Lista.create({
-            titulo,
-            descricao,
-            Usuario: req.userId
+            titulo: titulo,
+            descricao: descricao,
+            usuario: req.userId
         });
 
         await Promise.all(tarefas.map( async tarefa => {
             const listaTarefa = new Tarefa({ ...tarefa, lista: lista._id });
 
-            listaTarefa.save();
+            await listaTarefa.save();
+
             lista.tarefas.push(listaTarefa);
         }));
 
@@ -50,6 +49,7 @@ router.post('/', async (req, res) =>{
 
         return res.send({ lista });
     } catch (error) {
+        console.log(error);
         return res.status(400).send({ error: 'Erro ao criar lista'});
     }
 });
@@ -91,4 +91,4 @@ router.delete('/:listaId', async (req, res) =>{
     }
 });
 
-module.exports = app => app.use('listas', router);
+module.exports = app => app.use('/listas', router);
